@@ -1,53 +1,72 @@
-# Predicting Road Accident Risk (Kaggle Playground S5E10)
+# Predicting Road Accident Risk (Kaggle S5E10)
 
-## Overview
+![Python](https://img.shields.io/badge/python-3.10%2B-3776AB?style=flat&logo=python&logoColor=white)
+![Notebook](https://img.shields.io/badge/notebook-Jupyter-F37626?style=flat&logo=jupyter&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-supporting%20portfolio-1f6feb)
 
-This repository contains a complete machine learning workflow for the Kaggle competition **Playground Series S5E10 — Predicting Road Accident Risk**.
+## What is this
 
-The notebook `submission5.ipynb` includes preprocessing, feature engineering, model tuning, ensembling, and final submission generation.
+This repository contains an end-to-end ML pipeline for the Kaggle Playground Series S5E10 competition: predicting a continuous road accident risk score in `[0,1]`. The notebook includes feature engineering, model optimization, ensembling, and submission generation.
 
-## Competition
+## Why it exists
 
-- **Link:** https://www.kaggle.com/competitions/playground-series-s5e10
-- **Task:** predict continuous `accident_risk` in range `[0, 1]`
-- **Metric:** RMSE
+The project showcases practical tabular ML workflow design under competition constraints, including reproducible experimentation and metric-driven model selection.
 
-## Approach Summary
+## Approach
 
-1. Feature engineering with interaction and ratio features
-2. One-hot encoding for categorical columns
-3. Standard scaling of features
-4. Model tuning with Optuna
-5. Ensemble of LightGBM and XGBoost
-6. K-fold validation with out-of-fold predictions
+1. Feature engineering (interaction/ratio features)
+2. Categorical encoding + scaling
+3. Hyperparameter optimization with Optuna
+4. LightGBM + XGBoost ensemble with OOF validation
 
-## Results (Local CV)
+## Installation
+
+```bash
+git clone https://github.com/fbenkhelifa/predicting-road-accident-risk.git
+cd predicting-road-accident-risk
+python -m venv .venv
+# Windows PowerShell
+.\.venv\Scripts\Activate.ps1
+pip install pandas numpy scikit-learn lightgbm xgboost optuna matplotlib seaborn jupyter
+```
+
+## Usage
+
+1. Download competition files: `train.csv`, `test.csv`, `sample_submission.csv`.
+2. Update data paths in `submission5.ipynb`.
+3. Run notebook cells in order.
+
+### Reported local CV results
 
 - LGBM OOF RMSE: `0.056081`
 - XGB OOF RMSE: `0.056103`
-- Optimized Ensemble OOF RMSE: `0.056066`
+- Ensemble OOF RMSE: `0.056066`
 
-## Repository Structure
+## Project structure
 
-- `submission5.ipynb` — full end-to-end pipeline
+```text
+predicting-road-accident-risk/
+├── submission5.ipynb
+├── README.md
+├── .gitignore
+├── LICENSE
+└── MIGRATION_NOTE.md
+```
 
-## How to Run
+## Limitations
 
-1. Download competition data (`train.csv`, `test.csv`, `sample_submission.csv`).
-2. Place files in your input directory and update paths in the notebook if needed.
-3. Install required Python packages used in the notebook.
-4. Run all cells in `submission5.ipynb`.
+- Competition notebook format (limited production modularization)
+- Data files are external and not versioned here
+- No automated tests/CI currently
 
-## Tech Stack
+## Roadmap
 
-- Python
-- pandas, numpy
-- scikit-learn
-- lightgbm
-- xgboost
-- optuna
-- matplotlib, seaborn
+1. Split notebook logic into reusable Python modules.
+2. Add reproducible config-driven training pipeline.
+3. Add model-card style experiment summaries.
+4. Publish inferencing script for batch scoring.
 
 ## License
 
-MIT License (see `LICENSE`).
+Licensed under MIT. See [`LICENSE`](./LICENSE).
