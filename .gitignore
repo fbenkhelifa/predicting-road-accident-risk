@@ -10,6 +10,13 @@ env/
 # Jupyter
 .ipynb_checkpoints/
 
+# Data artifacts
+data/raw/kaggle_s5e10/*
+!data/raw/kaggle_s5e10/.gitkeep
+data/processed/**
+!data/processed/.gitkeep
+*.zip
+
 # IDE
 .vscode/
 .idea/

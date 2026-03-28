@@ -29,13 +29,16 @@ python -m venv .venv
 # Windows PowerShell
 .\.venv\Scripts\Activate.ps1
 pip install pandas numpy scikit-learn lightgbm xgboost optuna matplotlib seaborn jupyter
+# optional: install kaggle CLI and configure ~/.kaggle/kaggle.json
+powershell -ExecutionPolicy Bypass -File scripts/download_data.ps1
 ```
 
 ## Usage
 
-1. Download competition files: `train.csv`, `test.csv`, `sample_submission.csv`
-2. Update data paths in `submission5.ipynb`
-3. Run notebook cells in order
+1. Download competition files into `data/raw/kaggle_s5e10/` using `scripts/download_data.ps1`
+2. Run notebook cells in order
+
+The notebook is already configured for local paths under `data/raw/kaggle_s5e10/`.
 
 ### Reported local CV results
 
@@ -47,6 +50,13 @@ pip install pandas numpy scikit-learn lightgbm xgboost optuna matplotlib seaborn
 
 ```text
 predicting-road-accident-risk/
+├── data/
+│   ├── README.md
+│   ├── raw/
+│   │   └── kaggle_s5e10/
+│   └── processed/
+├── scripts/
+│   └── download_data.ps1
 ├── submission5.ipynb
 ├── README.md
 ├── .gitignore
@@ -56,7 +66,7 @@ predicting-road-accident-risk/
 ## Limitations
 
 - Competition notebook format (limited production modularization)
-- Data files are external and not versioned here
+- Data files are expected under `data/raw/kaggle_s5e10/` and are not redistributed here
 - No automated tests/CI currently
 
 ## Roadmap
