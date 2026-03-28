@@ -7,17 +7,18 @@
 
 ## What is this
 
-This repository contains an end-to-end ML workflow for Kaggle Playground Series S5E10 (continuous accident risk prediction).
+This repository contains an end-to-end ML workflow for the Kaggle Playground Series S5E10 competition, where the goal is to predict a continuous road-accident risk score in `[0,1]`.
 
 ## Why it exists
 
-The project demonstrates practical tabular ML experimentation under competition constraints with reproducible optimization and ensemble validation.
+This project demonstrates practical tabular ML iteration under competition constraints, including feature engineering, model optimization, ensembling, and submission generation.
 
-## Architecture / Stack
+## Approach
 
-- Python, pandas, numpy, scikit-learn
-- LightGBM, XGBoost, Optuna
-- Jupyter Notebook pipeline
+1. Feature engineering (interaction/ratio features)
+2. Categorical encoding + scaling
+3. Hyperparameter optimization with Optuna
+4. LightGBM + XGBoost ensemble with OOF validation
 
 ## Installation
 
@@ -32,9 +33,9 @@ pip install pandas numpy scikit-learn lightgbm xgboost optuna matplotlib seaborn
 
 ## Usage
 
-1. Download competition files: `train.csv`, `test.csv`, `sample_submission.csv`.
-2. Update paths inside `submission5.ipynb`.
-3. Run notebook cells in order.
+1. Download competition files: `train.csv`, `test.csv`, `sample_submission.csv`
+2. Update data paths in `submission5.ipynb`
+3. Run notebook cells in order
 
 ### Reported local CV results
 
@@ -42,29 +43,28 @@ pip install pandas numpy scikit-learn lightgbm xgboost optuna matplotlib seaborn
 - XGB OOF RMSE: `0.056103`
 - Ensemble OOF RMSE: `0.056066`
 
-## Project structure
+## Project Structure
 
 ```text
 predicting-road-accident-risk/
 ├── submission5.ipynb
 ├── README.md
 ├── .gitignore
-├── LICENSE
-└── MIGRATION_NOTE.md
+└── LICENSE
 ```
 
 ## Limitations
 
-- Notebook-first competition format
-- External dataset files are not versioned in repository
-- No automated CI/testing pipeline
+- Competition notebook format (limited production modularization)
+- Data files are external and not versioned here
+- No automated tests/CI currently
 
 ## Roadmap
 
-1. Refactor notebook logic into reusable modules.
-2. Add config-driven training pipeline.
-3. Add model-card experiment summaries.
-4. Publish batch inference script.
+1. Split notebook logic into reusable Python modules
+2. Add reproducible config-driven training pipeline
+3. Add model-card style experiment summaries
+4. Publish inferencing script for batch scoring
 
 ## License
 
