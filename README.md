@@ -7,18 +7,17 @@
 
 ## What is this
 
-This repository contains an end-to-end ML pipeline for the Kaggle Playground Series S5E10 competition: predicting a continuous road accident risk score in `[0,1]`. The notebook includes feature engineering, model optimization, ensembling, and submission generation.
+This repository contains an end-to-end ML workflow for Kaggle Playground Series S5E10 (continuous accident risk prediction).
 
 ## Why it exists
 
-The project showcases practical tabular ML workflow design under competition constraints, including reproducible experimentation and metric-driven model selection.
+The project demonstrates practical tabular ML experimentation under competition constraints with reproducible optimization and ensemble validation.
 
-## Approach
+## Architecture / Stack
 
-1. Feature engineering (interaction/ratio features)
-2. Categorical encoding + scaling
-3. Hyperparameter optimization with Optuna
-4. LightGBM + XGBoost ensemble with OOF validation
+- Python, pandas, numpy, scikit-learn
+- LightGBM, XGBoost, Optuna
+- Jupyter Notebook pipeline
 
 ## Installation
 
@@ -34,7 +33,7 @@ pip install pandas numpy scikit-learn lightgbm xgboost optuna matplotlib seaborn
 ## Usage
 
 1. Download competition files: `train.csv`, `test.csv`, `sample_submission.csv`.
-2. Update data paths in `submission5.ipynb`.
+2. Update paths inside `submission5.ipynb`.
 3. Run notebook cells in order.
 
 ### Reported local CV results
@@ -56,16 +55,16 @@ predicting-road-accident-risk/
 
 ## Limitations
 
-- Competition notebook format (limited production modularization)
-- Data files are external and not versioned here
-- No automated tests/CI currently
+- Notebook-first competition format
+- External dataset files are not versioned in repository
+- No automated CI/testing pipeline
 
 ## Roadmap
 
-1. Split notebook logic into reusable Python modules.
-2. Add reproducible config-driven training pipeline.
-3. Add model-card style experiment summaries.
-4. Publish inferencing script for batch scoring.
+1. Refactor notebook logic into reusable modules.
+2. Add config-driven training pipeline.
+3. Add model-card experiment summaries.
+4. Publish batch inference script.
 
 ## License
 
