@@ -36,9 +36,9 @@ powershell -ExecutionPolicy Bypass -File scripts/download_data.ps1
 ## Usage
 
 1. Download competition files into `data/raw/kaggle_s5e10/` using `scripts/download_data.ps1`
-2. Run notebook cells in order
+2. Open `notebooks/road-accident-risk.ipynb` and run cells in order
 
-The notebook is already configured for local paths under `data/raw/kaggle_s5e10/`.
+The notebook is configured for local paths under `../data/raw/kaggle_s5e10/`.
 
 ### Reported local CV results
 
@@ -55,9 +55,14 @@ predicting-road-accident-risk/
 │   ├── raw/
 │   │   └── kaggle_s5e10/
 │   └── processed/
+├── notebooks/
+│   └── road-accident-risk.ipynb
+├── reports/
+│   └── .gitkeep
+├── src/
+│   └── .gitkeep
 ├── scripts/
 │   └── download_data.ps1
-├── submission5.ipynb
 ├── README.md
 ├── .gitignore
 └── LICENSE
